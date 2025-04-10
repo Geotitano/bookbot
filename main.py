@@ -1,3 +1,5 @@
+import sys 
+
 
 def get_book_text(filepath):
 
@@ -7,10 +9,12 @@ def get_book_text(filepath):
 
 
 def main():
-    
-    path = "books/frankenstein.txt"
+
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    path = sys.argv[1]
     text = get_book_text(path)
-    # print(text)
 
 
     from stats import num_words
@@ -37,4 +41,5 @@ def main():
 
     print("============= END ===============")
 
-main()
+if __name__ == "__main__":
+    main()
